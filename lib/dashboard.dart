@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:learn_go_router/route_names.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -19,7 +20,13 @@ class Dashboard extends StatelessWidget {
                   onPressed: () {
                     // GoRouter.of(context).go('/profile');
                     String name = "VED";
-                    context.go("/profile/$name");
+                    // context.go("/profile/$name");
+                    context.goNamed(
+                      RouteNames.profile,
+                      params: {
+                        "name": name,
+                      },
+                    );
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.red,

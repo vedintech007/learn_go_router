@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:learn_go_router/dashboard.dart';
 import 'package:learn_go_router/profile.dart';
+import 'package:learn_go_router/route_names.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,14 +14,20 @@ class MyApp extends StatelessWidget {
   final GoRouter _router = GoRouter(
     // initialLocation: "/profile",
     routes: [
-      GoRoute(path: '/', builder: ((context, state) => const Dashboard()), routes: [
-        GoRoute(
-          path: 'profile/:name',
-          builder: ((context, state) => Profile(
-                name: state.params['name']!,
-              )),
-        ),
-      ]),
+      GoRoute(
+        name: RouteNames.dashboard,
+        path: '/',
+        builder: ((context, state) => const Dashboard()),
+        routes: [
+          GoRoute(
+            name: RouteNames.profile,
+            path: 'profile/:name',
+            builder: ((context, state) => Profile(
+                  name: state.params['name']!,
+                )),
+          ),
+        ],
+      ),
       // GoRoute(
       //   path: '/profile',
       //   builder: ((context, state) => const Profile()),
