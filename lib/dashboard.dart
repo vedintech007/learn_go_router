@@ -1,13 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Dashboard"),
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Dashboard"),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: TextButton(
+                  onPressed: () {
+                    // GoRouter.of(context).go('/profile');
+                    context.go("/profile");
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.red,
+                    elevation: 2,
+                    backgroundColor: Colors.amber,
+                  ),
+                  child: const Text(
+                    "Go to profile",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

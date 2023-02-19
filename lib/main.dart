@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final GoRouter _router = GoRouter(
-    initialLocation: "/profile",
+    // initialLocation: "/profile",
     routes: [
       GoRoute(
         path: '/',
