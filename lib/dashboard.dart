@@ -18,7 +18,8 @@ class Dashboard extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     // GoRouter.of(context).go('/profile');
-                    context.go("/profile");
+                    String name = "VED";
+                    context.go("/profile/$name");
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.red,

@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
     routes: [
       GoRoute(path: '/', builder: ((context, state) => const Dashboard()), routes: [
         GoRoute(
-          path: '/profile',
-          builder: ((context, state) => const Profile()),
+          path: 'profile/:name',
+          builder: ((context, state) => Profile(
+                name: state.params['name']!,
+              )),
         ),
       ]),
       // GoRoute(
