@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:learn_go_router/route_names.dart';
+import 'package:learn_go_router/lib-2/route_names.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
