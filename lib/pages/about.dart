@@ -8,7 +8,7 @@ class About extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: const Center(
-        child: Text("About"),
+        child: Text("This is About Us Page"),
       ),
     );
   }

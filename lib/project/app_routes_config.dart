@@ -21,10 +21,13 @@ class MyAppRouter {
         ),
         GoRoute(
           name: MyAppRouteContants.profileRouteName,
-          path: "/profile",
+          path: "/profile/:userName/:userid",
           pageBuilder: (context, state) {
-            return const MaterialPage(
-              child: Profile(),
+            return MaterialPage(
+              child: Profile(
+                userName: state.params['userName']!,
+                userid: state.params['userid']!,
+              ),
             );
           },
         ),
