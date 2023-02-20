@@ -8,7 +8,8 @@ import 'package:learn_go_router/pages/profile.dart';
 import 'package:learn_go_router/project/app_routes_constants.dart';
 
 class MyAppRouter {
-  GoRouter router = GoRouter(
+  static GoRouter returnRouter(bool isAuth) {
+    GoRouter router = GoRouter(
       routes: [
         GoRoute(
           name: MyAppRouteContants.homeRouteName,
@@ -52,5 +53,16 @@ class MyAppRouter {
       ],
       errorPageBuilder: (context, state) {
         return const MaterialPage(child: ErrorPage());
-      });
+      },
+      redirect: (context, state) {
+        if (!isAuth && state.location.startsWith("/${MyAppRouteContants.profileRouteName}")) {
+          return context.namedLocation(MyAppRouteContants.contactRouteName);
+        } else {
+          return null;
+        }
+      },
+    );
+
+    return router;
+  }
 }

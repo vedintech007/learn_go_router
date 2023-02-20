@@ -12,8 +12,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routeInformationParser: MyAppRouter().router.routeInformationParser,
-      routerDelegate: MyAppRouter().router.routerDelegate,
+      routeInformationParser: MyAppRouter.returnRouter(false).routeInformationParser,
+      routerDelegate: MyAppRouter.returnRouter(false).routerDelegate,
     );
   }
 }
